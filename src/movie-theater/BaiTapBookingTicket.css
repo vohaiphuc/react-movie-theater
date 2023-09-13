@@ -1,53 +1,61 @@
 @font-face {
-    font-family: 'fontGame';
-    src: url('../font/Pony.ttf');
+    font-family: "fontGame";
+    src: url("./font/Pony.ttf");
 }
 
-.bookingMovie{
-    font-family: 'fontGame';
+.bookingMovie {
+    font-family: "fontGame";
 }
 
-
-.ghe{
+.ghe {
     border: 3px solid orange;
-    width: 45px;
-    height: 35px;
+    /* width: 45px; */
+    width: 31px;
+    height: 33px;
     font-size: 12px;
     margin-left: 2%;
     margin-bottom: 1%;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.rowNumber{
-    /* font-size: 25px; */
-    width: 45px;
-    height: 35px;
-    background: none;
-    border:none;
-    margin-left: 2%;
-    margin-bottom: 1%;
-    font-size: 30px;
-    color: yellow;
-    
+.ghe.reserved {
+    background-color: orange;
 }
-.firstChar{
+
+.ghe.selected {
+    background-color: green;
+    border: 3px solid green;
+}
+
+.rowNumber {
+    /* font-size: 25px; */
+    /* width: 31px;
+    height: 35px; */
+    /* background: none;
+    border: none; */
+    /* margin-left: 2%;
+    margin-bottom: 1%; */
+    font-size: 16px;
+    color: yellow;
+}
+
+.firstChar {
     color: yellow;
     font-size: 35px;
     margin-right: 15px;
-
 }
 
-.screen{
+.screen {
     border-bottom: 50px solid rgb(255, 159, 95);
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     height: 100;
-    width:80%;
+    width: 80%;
     filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
     font-size: 25px;
     color: #fff;
 }
-
 
 .gheDuocChon {
     border: 3px solid orange;
@@ -59,7 +67,6 @@
     border-radius: 5px;
     width: 45px;
     height: 35px;
-
 }
 
 .gheDangChon {
@@ -71,5 +78,31 @@
     border-radius: 5px;
     width: 45px;
     height: 35px;
+}
 
+.theater {
+    position: relative;
+}
+
+.theater::before {
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: url(../img/bgmovie.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0.2);
+}
+
+.ant-table,
+.ant-table-cell {
+    /* background: transparent !important; */
+}
+
+#table-seat * {
+    background-color: #0000008b !important;
+    color: white;
 }
