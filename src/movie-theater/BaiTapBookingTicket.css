@@ -6,6 +6,14 @@
 .bookingMovie {
     font-family: "fontGame";
 }
+.ghe-header {
+    width: 31px;
+    height: 33px;
+    font-size: 12px;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+}
 
 .ghe {
     border: 3px solid orange;
@@ -42,8 +50,19 @@
 
 .firstChar {
     color: yellow;
-    font-size: 35px;
-    margin-right: 15px;
+    /* margin-right: 15px; */
+    width: 31px;
+    height: 33px;
+    /* background: #fff; */
+    position: relative;
+}
+
+.firstChar span {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .screen {

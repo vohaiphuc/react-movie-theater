@@ -8,16 +8,27 @@ import { theaterMap } from './danhSachGhe'
 let { Title, Text } = Typography
 
 export class TheaterMap extends Component {
+
     renderFirstRow = () => {
         let row = new Array(MAX_NUMBER_SEATS + 1).fill("")
         return row.map((n, i) => {
-            return <Col span={1} key={i}>
-                <Text type='warning' strong>{i < 1 ? "x" : i}</Text>
-            </Col>
+
+            if (i < 1) {
+                return <Col span={1} key={i}>
+                    <div className="ghe-header"></div>
+                </Col>
+            } else {
+                return <Col span={1} key={i}>
+                    {/* <Text type='warning' strong>{i}</Text> */}
+                    <div className="ghe-header">
+                        <span className='rowNumber'>{i}</span>
+                    </div>
+                </Col>
+            }
         })
     }
-    renderSeat = (row) => {
-        // let row = new Array(MAX_NUMBER_SEATS + 1).fill("")
+
+    renderSeats = (row) => {
         let danhSachGhe = [
             { soGhe: row.hang }, // Tên hàng (A, B, C,... J), soGhe dùng để tạo component key (bên dưới)
             ...row.danhSachGhe
@@ -25,7 +36,9 @@ export class TheaterMap extends Component {
         return danhSachGhe.map((seat, i) => {
             if (i < 1) {
                 return <Col span={1} key={seat.soGhe}>
-                    <div className="firstChar"><span className=''>{row.hang}</span></div>
+                    <div className="firstChar">
+                        <span className=''>{row.hang}</span>
+                    </div>
                 </Col>
             } else {
                 let isReserved = seat.daDat ? "reserved" : ""
@@ -41,13 +54,9 @@ export class TheaterMap extends Component {
         theaterMap.shift() // remove header
 
         return theaterMap.map((row, index) => {
-            return <Col span={24} key={index}>
-                <Row className='mb-3' justify={'center'}>
-                    <Space align='center'>
-                        {this.renderSeat(row)}
-                    </Space>
-                </Row>
-            </Col>
+            return <Row className="mb-3 w-100" key={index} justify={'center'}>
+                {this.renderSeats(row)}
+            </Row>
         })
     }
     render() {
@@ -55,7 +64,7 @@ export class TheaterMap extends Component {
             <div className='text-center'>
                 <Title type='warning' strong >Đặt vé xem phim</Title>
                 <Title level={4} className='text-white'>Màn hình</Title>
-                <Row justify={'center'}>
+                <Row justify={'center'} className='mb-3'>
                     {this.renderFirstRow()}
                 </Row>
                 <Row>
